@@ -189,21 +189,20 @@ footer p {
         <a href="#contact">Contact</a>
     </nav>
 <img src="test.jpeg" alt="Rasel's Photo" width="180">
-    <h1 id="home">Welcome to Rasel's Website</h1>
+    <h1 id="home">Hi, I'm Rasel Mahmud</h1>
 
 <h2>ISP & Network Support Professional</h2>
 
 <p>
-    Hello! I am Rasel. I have experience in ISP,
-    network support and infrastructure.
+    I am an ISP and Network Support Professional with 10+ years of experience in networking, infrastructure and technical support.
 </p>
 
 <a href="https://wa.me/8801632352249" target="_blank">
-    <button>Contact Me</button>
+    <button class="home-btn">Contact Me</button>
 </a>
 
-   <section id="about">
-    <h2>About Me</h2>
+   <section id="about" class="section-box">
+    <h2 class="section-title">Professional Profile</h2>
 
     <p>
         I am Md. Rasel Mahmud, an ISP and Network Support Professional.
@@ -218,8 +217,8 @@ footer p {
 </section>
 
    <section id="skills">
-    <h2>My Skills</h2>
-<div class="cards">
+    <h2 class="section-title">Technical Skills</h2>
+<div class="tech-cards">
 
     <div class="tech-card">
 <img src="cisco.jpg" alt="Cisco Switch">
@@ -231,42 +230,44 @@ footer p {
     </div>
 
     <div class="tech-card">
-        <h3>MikroTik Router</h3>
-        <p>MikroTik router configuration and network management.</p>
-<button onclick="alert('MikroTik Router: Router configuration, IP addressing, bandwidth management, firewall and basic network management.')">
-    View Details
-</button>
-    </div>
+    <img src="mikrotik.jpg" alt="MikroTik Router">
+    <h3>MikroTik Router</h3>
+    <p>MikroTik router configuration and network management.</p>
+    <button onclick="alert('MikroTik Router: Router configuration, IP addressing, bandwidth management, firewall and basic network management.')">
+        View Details
+    </button>
+</div>
 
     <div class="tech-card">
-        <h3>OLT</h3>
-        <p>OLT setup and fiber network configuration.</p>
-<button onclick="alert('OLT: GPON configuration, ONU management, VLAN setup and basic optical network management.')">
-    View Details
-</button>
-    </div>
-
+    <img src="olt.jpg" alt="OLT">
+    <h3>OLT</h3>
+    <p>OLT setup and fiber network configuration.</p>
+    <button onclick="alert('OLT: GPON configuration, ONU management, VLAN setup and basic optical network management.')">
+        View Details
+    </button>
 </div>
+
+<div class="additional-my-skills">
     <p>NOC Support</p>
-    <p> MikroTik Router</p>
-    <p> OLT Configuration</p>
-    <p> Cisco Switch</p>
-    <p> Radio Setup</p>
-    <p> CCTV Camera</p>
-    <p> ISP Infrastructure</p>
+    <p>MikroTik Router</p>
+    <p>OLT Configuration</p>
+    <p>Cisco Switch</p>
+    <p>Radio Setup</p>
+    <p>CCTV Camera</p>
+    <p>ISP Infrastructure</p>
+</div>
+
 </section>
 
    <section id="contact">
-    <h2>Contact Me</h2>
+    <h2 class="section-title">Get In Touch</h2>
 
-    <p>If you would like to contact me, please send a message below.</p>
-<div class="contact-info">
-
-    <div class="contact-info">
+   <p>If you would like to discuss a project, network support, or professional opportunity, feel free to contact me.</p>
+ <div class="contact-info">
 
     <p>📱 Phone: <a href="tel:01632352249">01632352249</a></p>
 
-    <p>📧 Email: <a href="raselmahmud2249@gmail.com">raselmahmud2249@gmail.com</a></p>
+    <p>📧 Email: <a href="mailto:raselmahmud2249@gmail.com">raselmahmud2249@gmail.com</a></p>
 
     <p>📍 Location: Chattogram, Bangladesh</p>
 
@@ -325,27 +326,74 @@ function openWhatsApp() {
 .tech-card {
     width: 250px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
     background: white;
+    transition: 0.3s;
+}
+
+.tech-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.tech-card img {
+    width: 140px;
+    height: 110px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+    display: block;
 }
 
 .tech-card h3 {
-    margin-bottom: 10px;
+    margin: 10px 0 8px;
+    font-size: 20px;
 }
+
+.tech-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    color: #555;
+}
+
+
 .contact-info {
-    margin: 20px 0;
-    padding: 15px;
-    border-radius: 10px;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 15px;
     background: #f5f5f5;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .contact-info p {
-    margin: 10px 0;
+    margin: 12px 0;
     font-size: 16px;
+    line-height: 1.6;
 }
+
+.home-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+}
+
 form {
     max-width: 500px;
     margin: 20px auto;
@@ -381,7 +429,7 @@ form button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-whatsapp-btn {
+.whatsapp-btn {
     padding: 12px 25px;
     border: none;
     border-radius: 8px;
@@ -395,6 +443,109 @@ whatsapp-btn {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
+@media (max-width: 600px) {
+    .tech-cards {
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .tech-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .tech-card img {
+        width: 120px;
+        height: 95px;
+    }
+}
+.tech-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tech-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.additional-my-skills {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: #f5f5f5;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.additional-my-skills p {
+    display: inline-block;
+    margin: 6px;
+    padding: 9px 16px;
+    border-radius: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.additional-my-skills p:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 600px) {
+    .additional-my-skills {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .additional-my-skills p {
+        font-size: 13px;
+        padding: 7px 12px;
+        margin: 4px;
+    }
+}
+
+section {
+    padding: 30px 15px;
+    margin: 20px auto;
+}
+
+section h2 {
+    margin-bottom: 15px;
+}
+
+.section-box {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+}
+
+.section-title {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
 </style>
 </body>
 </html>
