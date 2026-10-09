@@ -41,6 +41,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
 }
 
 nav a {
@@ -328,17 +329,17 @@ footer p {
 <img src="cisco.jpg" alt="Cisco Switch">
         <h3>Cisco Switch</h3>
         <p>Cisco switch configuration and network setup.</p>
-<button onclick="alert('Cisco Switch: Network switching, VLAN configuration, basic switch setup and troubleshooting.')">
-    View Details
-</button>
-    </div>
+        <button onclick="showDetails('cisco')">
+        View Details
+        </button>
+</div>
 
     <div class="tech-card">
     <img src="mikrotik.jpg" alt="MikroTik Router">
     <h3>MikroTik Router</h3>
     <p>MikroTik router configuration and network management.</p>
-    <button onclick="alert('MikroTik Router: Router configuration, IP addressing, bandwidth management, firewall and basic network management.')">
-        View Details
+    <button onclick="showDetails('mikrotik')">
+    View Details
     </button>
 </div>
 
@@ -346,8 +347,8 @@ footer p {
     <img src="olt.jpg" alt="OLT">
     <h3>OLT</h3>
     <p>OLT setup and fiber network configuration.</p>
-    <button onclick="alert('OLT: GPON configuration, ONU management, VLAN setup and basic optical network management.')">
-        View Details
+    <button onclick="showDetails('olt')">
+    View Details
     </button>
 </div>
 
@@ -467,17 +468,19 @@ function openWhatsApp() {
 .contact-info {
     max-width: 600px;
     margin: 25px auto;
-    padding: 20px;
+    padding: 24px;
     border-radius: 15px;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #2563eb;
+    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.12);
 }
 
 .contact-info p {
-    margin: 12px 0;
+    margin: 14px 0;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #334155;
 }
 
 .home-btn {
@@ -643,13 +646,153 @@ section h2 {
 
 .section-title {
     display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #ddd;
+    padding: 12px 22px;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #2563eb;
     border-radius: 10px;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.details-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-content {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    border-top: 5px solid #2563eb;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.details-content h2 {
+    color: #0f172a;
+    margin-top: 5px;
+    padding-right: 25px;
+}
+
+.details-content p,
+.details-content li {
+    color: #334155;
+    line-height: 1.8;
+}
+
+.details-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: transparent;
+    color: #334155;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 </style>
+
+<div id="detailsModal" class="details-modal">
+    <div class="details-content">
+        <button class="details-close" onclick="closeDetails()">×</button>
+        <h2 id="detailsTitle">Technical Details</h2>
+        <div id="detailsBody"></div>
+    </div>
+</div>
+
+<script>
+function showDetails(type) {
+    const modal = document.getElementById('detailsModal');
+    const title = document.getElementById('detailsTitle');
+    const body = document.getElementById('detailsBody');
+
+    const details = {
+        cisco: {
+            title: 'Cisco Switch Configuration',
+            intro: 'Network switching and infrastructure support.',
+            skills: [
+                'VLAN configuration and management',
+                'Access and trunk port configuration',
+                'Switch port status monitoring',
+                'Basic connectivity troubleshooting'
+            ]
+        },
+        mikrotik: {
+            title: 'MikroTik Router Configuration',
+            intro: 'Router setup and network traffic management.',
+            skills: [
+                'IP addressing and interface configuration',
+                'NAT and firewall rules',
+                'DHCP and routing configuration',
+                'Bandwidth management',
+                'Network connectivity troubleshooting'
+            ]
+        },
+        olt: {
+            title: 'OLT Configuration & Management',
+            intro: 'GPON access network setup and monitoring.',
+            skills: [
+                'GPON OLT basic configuration',
+                'ONU registration and management',
+                'VLAN service configuration',
+                'PON port monitoring',
+                'Optical network troubleshooting'
+            ]
+        }
+    };
+
+    const item = details[type];
+    if (!item) return;
+
+    title.textContent = item.title;
+    body.replaceChildren();
+
+    const intro = document.createElement('p');
+    intro.textContent = item.intro;
+    body.appendChild(intro);
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'Key Technical Areas';
+    body.appendChild(heading);
+
+    const list = document.createElement('ul');
+
+    item.skills.forEach(function(skill) {
+        const li = document.createElement('li');
+        li.textContent = skill;
+        list.appendChild(li);
+    });
+
+    body.appendChild(list);
+    modal.style.display = 'flex';
+}
+
+function closeDetails() {
+    document.getElementById('detailsModal').style.display = 'none';
+}
+
+document.getElementById('detailsModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeDetails();
+    }
+});
+</script>
+
 </body>
 </html>
