@@ -380,15 +380,31 @@ footer p {
 <a href="https://wa.me/8801632352249" target="_blank">
     <button type="button" class="whatsapp-btn">Chat on WhatsApp</button>
 </a>
-    <form onsubmit="sendMessage(event)">
-        <input type="text" placeholder="Your Name" required><br><br>
+    <form action="https://formspree.io/f/mdealwep" method="POST">
 
-        <input type="email" placeholder="Your Email" required><br><br>
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+    >
 
-        <textarea placeholder="Your Message" required></textarea><br><br>
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+    >
 
-        <button type="submit">Send Message</button>
-    </form>
+    <textarea
+        name="message"
+        placeholder="Your Message"
+        required
+    ></textarea>
+
+    <button type="submit">Send Message</button>
+
+</form>
 </section>
 
     <script>
@@ -399,22 +415,6 @@ function openWhatsApp() {
             alert("Hello Rasel! Thanks for contacting me.");
         }
 
-      function sendMessage(event) {
-    event.preventDefault();
-
-    let name = document.querySelector('input[type="text"]').value;
-    let email = document.querySelector('input[type="email"]').value;
-    let message = document.querySelector('textarea').value;
-
-    let whatsappMessage =
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Message: " + message;
-
-    let url = "https://wa.me/8801632352249?text=" + encodeURIComponent(whatsappMessage);
-
-    window.location.href = url;
-}
     </script>
 <footer>
     <p>© 2026 Rasel Mahmud | All Rights Reserved</p>
